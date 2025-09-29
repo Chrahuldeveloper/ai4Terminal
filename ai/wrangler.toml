@@ -1,6 +1,6 @@
 name = "ai4linux"
 main = "config/ai.ts"
-compatibility_date = "2025-9-29"
+compatibility_date = "2025-09-29"
 
 [ai]
 binding = "AI"

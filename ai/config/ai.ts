@@ -10,7 +10,9 @@ interface Env {
 }
 
 export default {
-if (request.method === "OPTIONS") {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    // Handle CORS preflight
+    if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
         headers: {
@@ -51,4 +53,8 @@ if (request.method === "OPTIONS") {
         }
       );
     }
-  };
+  },
+};
+
+
+// https://ai4linux.chrahulofficial.workers.dev/
