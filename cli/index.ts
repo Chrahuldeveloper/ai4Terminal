@@ -8,7 +8,9 @@ const read = readline.createInterface({
 
 const run = async (input: string) => {
   try {
-    await aiquery.queryAi(input);
+    console.log("Thinking....");
+    const res = await aiquery.queryAi(input);
+    console.log(res);
   } catch (error) {
     console.log(error);
   }

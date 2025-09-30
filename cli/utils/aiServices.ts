@@ -13,7 +13,7 @@ class aiServices {
       );
 
       const data = await queryai.json();
-      console.log(data.response);
+      return data.response;
     } catch (error) {
       console.log(error);
     }
@@ -21,4 +21,3 @@ class aiServices {
 }
 
 module.exports = new aiServices();
-// what is the command to list folders in linux?
