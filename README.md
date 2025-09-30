@@ -11,7 +11,6 @@ Ask questions, get answers, and explore AI—all without leaving your terminal!
 - Ask anything from your terminal
 - Powered by the **Llama AI model**
 - Lightweight and fast
-- Easy to integrate in any project
 
 ---
 
