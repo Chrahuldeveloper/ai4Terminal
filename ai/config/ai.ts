@@ -11,7 +11,6 @@ interface Env {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    // Handle CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -24,12 +23,18 @@ export default {
     }
 
     try {
-      const prompt = await request.json();
+const { prompt } = await request.json();
 
-      const aiResponse = await env.AI.run(
-        "@cf/meta/llama-3-8b-instruct",
-        prompt
-      );
+const aiResponse = await env.AI.run("@cf/meta/llama-3-8b-instruct", {
+  prompt: `You are QuickAssist, a helpful and knowledgeable personal assistant.  
+Your role: answer any question clearly, briefly, and in plain words.  
+Rules: 
+- Keep responses under 2 lines.  
+- No long explanations, just the essential answer.  
+- Be confident and direct.  
+
+Now answer this:\n\n${prompt}`,
+});
 
       const responseContent = {
         response: aiResponse.response,
@@ -55,6 +60,5 @@ export default {
     }
   },
 };
-
 
 // https://ai4linux.chrahulofficial.workers.dev/
